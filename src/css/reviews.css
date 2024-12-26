@@ -15,13 +15,9 @@
 .reviews-list {
   display: flex;
   flex-wrap: nowrap;
-  /* Убираем перенос */
   gap: 0;
-  /* Убираем gap */
   margin: 0;
-  /* Убираем внешние отступы */
   padding: 0;
-  /* Убираем внутренние отступы */
 }
 
 .review-item {
@@ -88,6 +84,7 @@
 .swiper-container {
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 .swiper-wrapper {

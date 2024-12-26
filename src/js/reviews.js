@@ -21,6 +21,13 @@ async function fetchReviews() {
     const data = await response.json();
     renderReviews(data);
     initializeSwiper();
+    // new Swiper('.swiper-container', {
+    //   slidesPerView: 4,
+    //   navigation: {
+    //     nextEl: '.reviews-swiper-button-next',
+    //     prevEl: '.reviews-swiper-button-prev',
+    //   },
+    // });
   } catch (error) {
     iziToast.error({
       title: 'Error',
@@ -50,12 +57,13 @@ function renderReviews(reviews) {
 
 function initializeSwiper() {
   const swiper = new Swiper('.swiper-container', {
-    modules: [Navigation, Pagination, Keyboard],
+    // modules: [Pagination, Keyboard],
     speed: 500,
-    loop: false, // Отключаем бесконечный цикл
-    slidesPerView: 1, // По умолчанию показывать 1 слайд
+    // loop: false, // Отключаем бесконечный цикл
+    slidesPerView: 4, // По умолчанию показывать 1 слайд
     slidesPerGroup: 1, // Переключаем по одному слайду
-    spaceBetween: 16, // Расстояние между слайдами
+    spaceBetween: 10, // Расстояние между слайдами
+
     navigation: {
       nextEl: '.reviews-swiper-button-next',
       prevEl: '.reviews-swiper-button-prev',
@@ -74,35 +82,35 @@ function initializeSwiper() {
       1440: {
         slidesPerView: 4,
         slidesPerGroup: 1, // Переключаем по одному слайду
-        spaceBetween: 16,
+        spaceBetween: 10,
       },
       // when window width is >= 768px
       768: {
         slidesPerView: 2,
         slidesPerGroup: 1, // Переключаем по одному слайду
-        spaceBetween: 16,
+        spaceBetween: 10,
       },
       // when window width is >= 375px
       375: {
         slidesPerView: 1,
         slidesPerGroup: 1, // Переключаем по одному слайду
-        spaceBetween: 16,
+        spaceBetween: 10,
       },
     },
     on: {
       slideChange: function () {
         updateNavigationButtons(swiper);
-        updateSlideVisibility(swiper);
+        // updateSlideVisibility(swiper);
       },
       resize: function () {
-        updateSlideVisibility(swiper);
+        // updateSlideVisibility(swiper);
       },
     },
   });
 
   // Обновляем состояние кнопок навигации и видимость слайдов при инициализации
   updateNavigationButtons(swiper);
-  updateSlideVisibility(swiper);
+  // updateSlideVisibility(swiper);
 }
 
 function updateSlideVisibility(swiper) {
